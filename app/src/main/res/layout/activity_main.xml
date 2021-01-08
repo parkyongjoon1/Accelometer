@@ -46,5 +46,4 @@
         android:textSize="25dp"
         android:text="Z axis : 0"
         />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

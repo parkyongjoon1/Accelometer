@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         accelerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();

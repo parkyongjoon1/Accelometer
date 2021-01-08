@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvgXaxis = (TextView) findViewById(R.id.tvgXaxis);
-        tvgYaxis = (TextView) findViewById(R.id.tvgYaxis);
-        tvgZaxis = (TextView) findViewById(R.id.tvgZaxis);
+        tvgXaxis = findViewById(R.id.tvgXaxis);
+        tvgYaxis = findViewById(R.id.tvgYaxis);
+        tvgZaxis = findViewById(R.id.tvgZaxis);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

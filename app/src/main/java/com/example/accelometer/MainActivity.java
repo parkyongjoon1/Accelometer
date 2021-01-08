@@ -12,27 +12,27 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
-    TextView tvgXaxis, tvgYaxis, tvgZaxis;
+    TextView tvX, tvY, tvZ;
     private SensorManager sensorManager;
-    private Sensor accelerSensor;
+    private Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvgXaxis = findViewById(R.id.tvgXaxis);
-        tvgYaxis = findViewById(R.id.tvgYaxis);
-        tvgZaxis = findViewById(R.id.tvgZaxis);
+        tvX = findViewById(R.id.tvgXaxis);
+        tvY = findViewById(R.id.tvgYaxis);
+        tvZ = findViewById(R.id.tvgZaxis);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        accelerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, accelerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -44,15 +44,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor == accelerSensor) {
+        if (event.sensor == sensor) {
             //include gravity
             float gAccX = event.values[0] * 25.5f;
             float gAccY = event.values[1] * 25.5f;
             float gAccZ = event.values[2];
 
-            tvgXaxis.setText("X 축 : " + String.format("%.2f", gAccX));
-            tvgYaxis.setText("Y 축 : " + String.format("%.2f", gAccY));
-            tvgZaxis.setText("Z axis : " + String.format("%.2f", gAccZ));
+            tvX.setText("X 축 : " + String.format("%.2f", gAccX));
+            tvY.setText("Y 축 : " + String.format("%.2f", gAccY));
+            tvZ.setText("Z axis : " + String.format("%.2f", gAccZ));
         }
     }
 

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             float gAccZ = event.values[2];
 
             tvgXaxis.setText("X 축 : " + String.format("%.2f", gAccX));
-            tvgYaxis.setText("Y axis : " + String.format("%.2f", gAccY));
+            tvgYaxis.setText("Y 축 : " + String.format("%.2f", gAccY));
             tvgZaxis.setText("Z axis : " + String.format("%.2f", gAccZ));
         }
     }
